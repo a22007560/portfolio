@@ -1,0 +1,37 @@
+.quizzMain{
+    min-height: 85vh;
+    background-color: #181818;
+}
+
+.quizzQuestion {
+    text-align: center;
+    margin: 10px 20%;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    border: 2px solid #181818;
+    box-shadow: inset 0px 0px 50px 3px rgba(0,0,0,0.47);
+    padding: 20px;
+}
+
+.quizzQuestion:hover {
+    box-shadow: 0px 0px 50px 3px rgba(0,0,0,0.47);
+    border: 2px solid #FFD369;
+}
+
+.quizzQuestion input[type=text], input[type=date]{
+    color: #181818;
+}
+
+.quizzQuestion h4{
+    text-decoration: underline;
+    padding: 10px 0 5px 0px;
+}
+
+.quizzQuestion p{
+    padding: 5px 0 10px 0px;
+}
+
+.submitQuizz{
+    text-align: center;
+    padding-bottom: 50px;
+}

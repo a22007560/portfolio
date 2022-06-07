@@ -1,0 +1,185 @@
+* {
+  padding: 0; 
+  margin: 0;
+  box-sizing:border-box;
+  font-family: 'Oswald', sans-serif;
+  color:#eeeeee;
+}
+
+/* 
+===================COLORS========================
+White: #EEEEEE
+Black1: #181818
+Black2: #020202
+Yellow: #FFD369
+*/
+
+.right-align{
+  text-align: right;
+}
+
+.left-align{
+  text-align: left;
+}
+
+
+
+/* HEADER */
+
+header {
+  height: 10vh; 
+  background: #FFD369;
+  color: #181818;
+  top: 0;  
+  
+/* alinhando logo e menu */
+  display:flex;
+  justify-content: space-between;  
+  align-items: center;
+}
+
+header div {
+  font-size: 2em;  
+  padding: 1em;
+  color: #181818;
+}
+
+header nav {
+  display:flex;
+  justify-content: flex-end;  
+}
+
+
+nav a {
+  padding: 0 1em;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #181818;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.sticky {
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Main */
+
+main {
+  background-color:#181818;
+}
+
+.textAbertura {
+  padding: 2em 4em;
+}
+
+.title{
+  text-align: center;
+  padding-top: 5vh;
+}
+
+.title h3 {
+  font-weight: 600;
+  color: #FFD369;
+  font-size: 1.825rem;
+}
+
+.title p {
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+.divider{
+  height: 20vh;
+  background-image: url(/static/portfolio/images/background1.svg);
+  background-color: #FFD369;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.divider img {
+  width: 100%;
+}
+
+.grid-sobreMim {
+  display: grid;
+  gap: 50px;
+  padding: 5% 20%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+    '. .'
+    '. .'
+    '. .';
+}
+
+.section2 h2{
+  text-align: center;
+  padding-top: 40px;
+}
+
+.sobreMim {
+  text-align: left;
+}
+
+/* Licenciatura */
+
+.licenciaturaMain{
+  min-height: 85vh;
+}
+
+/* Projetos */
+
+.project-sec1{
+  min-height: 85vh;
+  text-align: center;
+
+}
+
+.project-sec1 h3{
+  font-weight: 600;
+  color: #FFD369;
+  font-size: 1.825rem;
+}
+
+.project{
+  align-content: center;
+  justify-content: space-around;
+  margin: 10px 20%;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+  border: 2px solid #181818;
+  box-shadow: inset 0px 0px 50px 3px rgba(0,0,0,0.47);
+
+}
+
+.project:hover {
+  box-shadow: 0px 0px 50px 3px rgba(0,0,0,0.47);
+  border: 2px solid #FFD369;
+}
+
+.project > div {
+  padding: 20px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+
+/* FOOTER */
+
+footer {
+  background-color:#FFD369;
+  color: #181818;
+  height:5vh;
+  display:flex;
+  justify-content: flex-end;
+  padding: 0 2vw;
+  align-items: center;
+}

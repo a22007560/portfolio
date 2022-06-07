@@ -1,0 +1,52 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+<section class="gridLayout licenciaturaGrid licenciaturaMain">
+    
+    <div class="title">
+        <h3>Cadeiras</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+    <div class="list-grid">
+        <div class="gridItem item1">
+            <h4>Cadeira #1</h4>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div class="rating">
+                {% load static %}
+                <img src="{% static 'portfolio/images/icons/star_filled.png' %}" alt="star">
+                <img src="{% static 'portfolio/images/icons/star_filled.png' %}" alt="star">
+                <img src="{% static 'portfolio/images/icons/star_filled.png' %}" alt="star">
+                <img src="{% static 'portfolio/images/icons/star_half.png' %}" alt="star">
+                <img src="{% static 'portfolio/images/icons/star.png' %}" alt="star">
+            </div>
+        </div>
+
+        <div class="gridItem item1">
+            <h4>Cadeira #2</h4>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div class="rating">
+                {% load static %}
+                <img src="{% static 'portfolio/images/icons/star_filled.png' %}" alt="star">
+                <img src="{% static 'portfolio/images/icons/star_filled.png' %}" alt="star">
+                <img src="{% static 'portfolio/images/icons/star_filled.png' %}" alt="star">
+                <img src="{% static 'portfolio/images/icons/star.png' %}" alt="star">
+                <img src="{% static 'portfolio/images/icons/star.png' %}" alt="star">
+            </div>
+        </div>
+
+        <div class="gridItem item1">
+            <h4>Cadeira #3</h4>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div class="rating">
+                {% load static %}
+                <img src="{% static 'portfolio/images/icons/star_filled.png' %}" alt="star">
+                <img src="{% static 'portfolio/images/icons/star_filled.png' %}" alt="star">
+                <img src="{% static 'portfolio/images/icons/star_filled.png' %}" alt="star">
+                <img src="{% static 'portfolio/images/icons/star_filled.png' %}" alt="star">
+                <img src="{% static 'portfolio/images/icons/star.png' %}" alt="star">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

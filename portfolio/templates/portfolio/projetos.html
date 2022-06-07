@@ -1,0 +1,27 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <section class="project-sec1">
+
+        <div class="title">
+            <h3>Projetos</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+
+        <div class="project flex-container">
+            <div class="project-img">
+                {% load static %}
+                <img src="{% static 'portfolio/images/placeholder.png' %}">
+            </div>
+            <div class="project-desc">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet arcu id faucibus egestas. Nam dictum dui nec enim malesuada, et blandit sem laoreet. Aenean lobortis rutrum metus eu tempus. Aliquam feugiat, tellus nec accumsan condimentum, diam neque fermentum neque, sit amet ultricies elit augue ac risus. Etiam dolor leo, eleifend id semper et, varius in mauris.
+                </p>
+            </div>
+        </div>
+
+
+
+    </section>
+
+{% endblock %}

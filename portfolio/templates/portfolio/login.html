@@ -1,0 +1,24 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+<section class="loginMain">
+    <div class="title">
+        <h3>Login</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="loginBlock">
+            {% load static %}
+            <img src="{% static 'portfolio/images/icons/admin.png' %}">
+            <input type="text" name="" id="" placeholder="Username">
+            <input type="text" name="" id="" placeholder="Password">
+            <button type="submit">Entrar</button>
+        </div>
+    </div>
+
+
+</section>
+
+{% endblock %}

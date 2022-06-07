@@ -1,0 +1,58 @@
+
+.postAll {
+    text-align: center;
+}
+
+.post {
+    align-content: center;
+    justify-content: space-around;
+    margin: 10px 20%;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    border: 2px solid #181818;
+    box-shadow: inset 0px 0px 50px 3px rgba(0,0,0,0.47);
+}
+
+.post:hover {
+    box-shadow: 0px 0px 50px 3px rgba(0,0,0,0.47);
+    border: 2px solid #FFD369;
+}
+
+.blogMain {
+    min-height: 85vh;
+}
+
+.createPostButton{
+    text-align: center;
+    margin: 50px;
+}
+
+.createPostButton a{
+    background-color: #FFD369;
+    border-radius: 15px;
+    padding: 5px;
+    color: #181818;
+    text-decoration: none;
+}
+
+.newPostMain {
+    min-height: 85vh;
+    text-align: center;
+}
+
+.newPostForm input[type=button], input[type=submit]{
+    background-color: #FFD369;
+    color: #181818;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.newPostForm input[type=text]{
+    color: #181818;
+}
+
+.newPostForm p, a {
+    padding: 20px;
+}
