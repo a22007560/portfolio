@@ -76,7 +76,7 @@
     function getWeatherFun(){
         var cityCode = document.getElementById("city").value;
 
-        fetch('http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/' + cityCode + '.json')
+        fetch('//api.ipma.pt/open-data/forecast/meteorology/cities/daily/' + cityCode + '.json')
             .then(response => response.json())
             .then(data => {
                 for (let i = 0; i < 5; i++){
