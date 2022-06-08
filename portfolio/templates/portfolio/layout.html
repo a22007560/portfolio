@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'portfolio/css/estilos_heroSection.css' %}">
     <link rel="stylesheet" href="{% static 'portfolio/css/estilos_grid.css' %}">
     <link rel="stylesheet" href="{% static 'portfolio/css/estilos_login.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/estilos_weather.css' %}">
     <script src="{% static 'portfolio/javascript/hero.js' %}"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +23,8 @@
         <a href="{% url 'portfolio:licenciatura' %}">Licenciatura</a>      
         <a href="{% url 'portfolio:projetos' %}">Projetos</a>      
         <a href="{% url 'portfolio:blog' %}">Blog</a>      
-        <a href="{% url 'portfolio:quizz' %}">Quizz</a>      
+        <a href="{% url 'portfolio:quizz' %}">Quizz</a>
+        <a href="{% url 'portfolio:weather' %}">Weather</a>
         <a href="{% url 'portfolio:login' %}" id="loginNav">Login</a>
       </nav>
     </header>

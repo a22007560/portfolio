@@ -63,6 +63,9 @@ def quizz_page_view(request):
 def login_page_view(request):
     return render(request, 'portfolio/login.html')
 
+def weather_page_view(request):
+    return render(request, 'portfolio/weather.html')
+
 def pontuacao_quizz(request):
     score = 0
     lista_checkBox = request.POST.getList('op21')

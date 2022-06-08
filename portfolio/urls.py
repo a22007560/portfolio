@@ -14,5 +14,6 @@ urlpatterns = [
     path('deletePost/<int:blog_id>', views.apaga_blog_view, name='deletePost'),
     path('quizz', views.quizz_page_view, name='quizz'),
     path('login', views.login_page_view, name='login'),
+    path('weather', views.weather_page_view, name='weather'),
 
 ]

@@ -1,0 +1,116 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+<section class="weatherMain">
+
+    <div class="weatherCityInput">
+        <select name="city" id="city" onchange="getWeatherFun()">
+            <option value="1110600" selected="selected">Lisboa</option>
+            <option value="1131200">Porto</option>
+            <option value="1080500">Faro</option>
+        </select>
+    </div>
+
+    <div class="weatherForecastDays">
+        <div class="weatherDisplay">
+            <h3 class="data0"></h3>
+            <img class="weatherIcon1" id="weatherIcon0" src="">
+            <h3 class="maxTemp0"></h3>
+            <h3 class="minTemp0"></h3>
+            <h3 class="chuvaProb0"></h3>
+        </div>
+
+        <div class="weatherDisplay">
+            <h3 class="data1"></h3>
+            <img class="weatherIcon1" id="weatherIcon1" src="">
+            <h3 class="maxTemp1"></h3>
+            <h3 class="minTemp1"></h3>
+            <h3 class="chuvaProb1"></h3>
+        </div>
+
+        <div class="weatherDisplay">
+            <h3 class="data2"></h3>
+            <img class="weatherIcon2" id="weatherIcon2" src="">
+            <h3 class="maxTemp2"></h3>
+            <h3 class="minTemp2"></h3>
+            <h3 class="chuvaProb2"></h3>
+        </div>
+
+        <div class="weatherDisplay">
+            <h3 class="data3"></h3>
+            <img class="weatherIcon3" id="weatherIcon3" src="">
+            <h3 class="maxTemp3"></h3>
+            <h3 class="minTemp3"></h3>
+            <h3 class="chuvaProb3"></h3>
+        </div>
+
+        <div class="weatherDisplay">
+            <h3 class="data4"></h3>
+            <img class="weatherIcon4" id="weatherIcon4" src="">
+            <h3 class="maxTemp4"></h3>
+            <h3 class="minTemp4"></h3>
+            <h3 class="chuvaProb4"></h3>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</section>
+
+<script>
+    const sunnyIconCode = [1, 3]
+    const rainIconCode = [6, 7, 9, 10, 12, 13, 15]
+    const heavyRainIconCode = [8, 11]
+    const cloudIconCode = [4, 5, 25, 24, 27]
+    const partlyCloudy = [2]
+
+    window.onload = function() {
+        getWeatherFun()
+    };
+
+    function getWeatherFun(){
+        var cityCode = document.getElementById("city").value;
+
+        fetch('http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/' + cityCode + '.json')
+            .then(response => response.json())
+            .then(data => {
+                for (let i = 0; i < 5; i++){
+                    var maxTemp = document.querySelector('.maxTemp' + i);
+                    var minTemp = document.querySelector('.minTemp' + i);
+                    var dataTemp = document.querySelector('.data' + i);
+                    var chuvaProbValue = document.querySelector('.chuvaProb' + i);
+
+                    maxTemp.innerHTML = "Temperatura Máxima: " + data['data'][i]['tMax'] + " ºC";
+                    minTemp.innerHTML = "Temperatura Mínima: " + data['data'][i]['tMin'] + " ºC";
+                    dataTemp.innerHTML = data['data'][i]['forecastDate'];
+                    chuvaProbValue.innerHTML = "Probabilidade de Chuva: " + data['data'][i]['precipitaProb'] + " %";
+
+                    var weatherTypeId = data['data'][i]['idWeatherType'];
+                    var weatherIconName = "question.png";
+
+                    if (sunnyIconCode.includes(weatherTypeId)){
+                        weatherIconName = "sun.png"
+                    } else if (partlyCloudy.includes(weatherTypeId)){
+                        weatherIconName = "partly_cloudy.png"
+                    } else if (rainIconCode.includes(weatherTypeId)){
+                        weatherIconName = "rain.png"
+                    } else if (heavyRainIconCode.includes(weatherTypeId)){
+                        weatherIconName = "rainV2.png"
+                    } else if (cloudIconCode.includes(weatherTypeId)){
+                        weatherIconName = "cloud.png"
+                    }
+
+                    document.getElementById("weatherIcon" + i).src = "/portfolio/static/portfolio/images/weatherIcons/" + weatherIconName;
+                }
+        })
+    }
+
+</script>
+
+
+{% endblock %}

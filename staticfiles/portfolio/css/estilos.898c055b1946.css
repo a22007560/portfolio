@@ -100,7 +100,7 @@ main {
 
 .divider{
   height: 20vh;
-  background-image: url(/portfolio/static/portfolio/images/background1.svg);
+  background-image: url("/portfolio/static/portfolio/images/background1.e9c2f929aa3c.svg");
   background-color: #FFD369;
   background-repeat: no-repeat;
   background-attachment: fixed;
