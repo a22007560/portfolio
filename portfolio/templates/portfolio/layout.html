@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'portfolio/css/estilos_login.css' %}">
     <link rel="stylesheet" href="{% static 'portfolio/css/estilos_weather.css' %}">
     <script src="{% static 'portfolio/javascript/hero.js' %}"></script>
+    <script src="{% static 'portfolio/javascript/weatherAPI.js' %}"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -27,6 +28,9 @@
         <a href="{% url 'portfolio:quizz' %}">Quizz</a>
         <a href="{% url 'portfolio:weather' %}">Weather</a>
         <a href="{% url 'portfolio:login' %}" id="loginNav">Login</a>
+        {% if request.user.is_authenticated %}
+            <h1>Login feito!</h1>
+        {% endif %}
       </nav>
     </header>
     
