@@ -8,17 +8,33 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
 
+        {% if request.user.is_authenticated %}
+        <div class="createPostButton">
+            <a href="{% url 'portfolio:newProject' %}">Adicionar Projecto</a>
+        </div>
+        {% endif %}
+
+
+        {% for project in projetos %}
         <div class="project flex-container">
-            <div class="project-img">
-                {% load static %}
-                <img src="{% static 'portfolio/images/placeholder.png' %}">
+            <div class="project_header">
+                <h3>{{ project.titulo }}</h3>
             </div>
+
+            <div class="project-img">
+                <img src="{{project.imagem.url}}" class="projectImg">
+            </div>
+
             <div class="project-desc">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet arcu id faucibus egestas. Nam dictum dui nec enim malesuada, et blandit sem laoreet. Aenean lobortis rutrum metus eu tempus. Aliquam feugiat, tellus nec accumsan condimentum, diam neque fermentum neque, sit amet ultricies elit augue ac risus. Etiam dolor leo, eleifend id semper et, varius in mauris.
-                </p>
+                <p>{{ project.descricao }}</p>
             </div>
         </div>
+        {% if request.user.is_authenticated %}
+        <div class="createPostButton">
+            <a href="{% url 'portfolio:editProject' project.id %}">Editar Projecto</a>
+        </div>
+        {% endif %}
+        {% endfor %}
 
 
 

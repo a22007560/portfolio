@@ -1,0 +1,31 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+<section class="factosMain">
+
+    <div class="title">
+        <h3>API de Animais</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+    <div class="center-align">
+        <input class="rndAnimalButton" type="submit" onclick="getAnimal()" value="Gerar animal">
+    </div>
+
+    <div class="center-align">
+        <div class="animalInfo">
+            <h3 class="animalName"></h3>
+            <img src="" class="animalImg" alt="">
+            <p class="animalLatinName"></p>
+            <p class="animalActiveTime"></p>
+            <p class="animalType"></p>
+            <p class="animalDiet"></p>
+            <p class="animalHabitat"></p>
+        </div>
+    </div>
+
+
+</section>
+
+{% endblock %}

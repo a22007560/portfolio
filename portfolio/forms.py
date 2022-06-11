@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Blog
+from .models import Blog, Project
 
 
 class BlogForm(ModelForm):
@@ -14,13 +14,18 @@ class BlogForm(ModelForm):
             'descricao': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Descrição do Post...'}),
         }
 
-
     # texto a exibir junto à janela de inserção
         labels = {
             'titulo': 'Título',
         }
 
-
     # texto auxiliar a um determinado campo do formulário
         help_texts = {
         }
+
+
+class ProjectForm(ModelForm):
+    class Meta:
+        model = Project
+        fields = '__all__'
+

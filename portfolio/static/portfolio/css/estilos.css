@@ -22,6 +22,10 @@ Yellow: #FFD369
   text-align: left;
 }
 
+.center-align{
+  text-align: center;
+}
+
 
 
 /* HEADER */
@@ -176,6 +180,25 @@ main {
   display: flex;
 }
 
+#clock {
+  position: fixed;
+  color: #181818;
+  background: #FFD369;
+  bottom: 20px;
+  left: 20px;
+  border-radius: 10px;
+  padding: 5px;
+  border: 2px solid #181818;
+}
+
+#randomFact{
+  position: fixed;
+  z-index: 99999999999;
+}
+
+.rndFactButton{
+  height: 50px;
+}
 
 /* FOOTER */
 
