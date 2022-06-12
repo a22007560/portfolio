@@ -19,6 +19,7 @@ urlpatterns = [
     path('editPost/<int:blog_id>', views.edita_blog_view, name='editPost'),
     path('deletePost/<int:blog_id>', views.apaga_blog_view, name='deletePost'),
     path('quizz', views.quizz_page_view, name='quizz'),
+    path('quizzPage', views.quizzPage_page_view, name='quizzPage'),
     path('login', views.login_page_view, name='login'),
     path('logout', views.logout_page_view, name='logout'),
     path('weather', views.weather_page_view, name='weather'),
