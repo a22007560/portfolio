@@ -33,6 +33,13 @@ class Project(models.Model):
         return self.titulo
 
 
+class Cadeira(models.Model):
+    titulo = models.CharField(max_length=50)
+    descricao = models.TextField(max_length=3000)
+    imagem = models.ImageField(upload_to="pictures/")
+
+    def __str__(self):
+        return self.titulo
 
 
 

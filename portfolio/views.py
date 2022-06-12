@@ -4,8 +4,8 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 
-from .models import Blog, Project, PontuacaoQuizz
-from .forms import BlogForm, ProjectForm
+from .models import Blog, Project, PontuacaoQuizz, Cadeira
+from .forms import BlogForm, ProjectForm, CadeiraForm
 
 import matplotlib.pyplot as plt
 import matplotlib
@@ -18,7 +18,38 @@ def home_page_view(request):
 
 
 def licenciatura_page_view(request):
-    return render(request, 'portfolio/licenciatura.html')
+    context = {'cadeiras': Cadeira.objects.all()}
+    return render(request, 'portfolio/licenciatura.html', context)
+
+def novaCadeira_page_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+    form = CadeiraForm(request.POST, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/novaCadeira.html', context)
+
+def edita_cadeira_view(request, cadeira_id):
+    cadeira = Cadeira.objects.get(id=cadeira_id)
+    form = CadeiraForm(request.POST or None, instance=cadeira)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+    context = {'form': form, 'cadeira_id': cadeira_id}
+    return render(request, 'portfolio/editCadeira.html', context)
+
+
+def apaga_cadeira_view(request, cadeira_id):
+    Cadeira.objects.get(id=cadeira_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
 
 
 def projetos_page_view(request):

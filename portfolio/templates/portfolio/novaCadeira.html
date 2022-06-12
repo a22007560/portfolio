@@ -1,0 +1,19 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <section class="newProjectMain">
+        <div class="title">
+            <h3>Nova Cadeira</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+
+        <form method="Post" action="" class="newProjectForm" enctype="multipart/form-data">>
+            {% csrf_token %}
+
+            {{form.as_p }}
+            <input type="submit" value="Postar">
+        </form>
+    </section>
+
+
+{% endblock %}

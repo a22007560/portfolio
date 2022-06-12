@@ -1,0 +1,20 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <section class="newPostMain">
+        <div class="title">
+            <h3>Editar Cadeira</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+
+        <form method="Post" action="{%  url 'portfolio:editCadeira' cadeira_id %}" class="newPostForm" >
+            {% csrf_token %}
+
+            {{form.as_p }}
+            <input type="submit" value="Postar">
+            <a href= "{% url 'portfolio:deleteCadeira' cadeira_id %}" role="button"> Apagar </a>
+        </form>
+    </section>
+
+
+{% endblock %}

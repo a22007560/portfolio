@@ -14,27 +14,31 @@
         </div>
         {% endif %}
 
+        <div class="list-projectos list-background">
+            {% for project in projetos %}
+            <div class="list-item">
+                <div class="list-item-title">
+                    <h4>{{ project.titulo }}</h4>
+                </div>
 
-        {% for project in projetos %}
-        <div class="project flex-container">
-            <div class="project_header">
-                <h3>{{ project.titulo }}</h3>
-            </div>
+                <div class="list-item-img">
+                    <img src="{{project.imagem.url}}" class="projectImg">
+                </div>
 
-            <div class="project-img">
-                <img src="{{project.imagem.url}}" class="projectImg">
-            </div>
+                <div class="list-item-desc">
+                    <p>{{ project.descricao }}</p>
+                </div>
 
-            <div class="project-desc">
-                <p>{{ project.descricao }}</p>
+                {% if request.user.is_authenticated %}
+                <div class="list-item-editBT">
+                    <a href="{% url 'portfolio:editProject' project.id %}">Editar Projecto</a>
+                </div>
+                {% endif %}
             </div>
+            {% endfor %}
         </div>
-        {% if request.user.is_authenticated %}
-        <div class="createPostButton">
-            <a href="{% url 'portfolio:editProject' project.id %}">Editar Projecto</a>
-        </div>
-        {% endif %}
-        {% endfor %}
+
+
 
 
 

@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Blog, Project
+from .models import Blog, Project, Cadeira
 
 
 class BlogForm(ModelForm):
@@ -27,5 +27,11 @@ class BlogForm(ModelForm):
 class ProjectForm(ModelForm):
     class Meta:
         model = Project
+        fields = '__all__'
+
+
+class CadeiraForm(ModelForm):
+    class Meta:
+        model = Cadeira
         fields = '__all__'
 

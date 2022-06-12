@@ -14,28 +14,27 @@
         <a href="{% url 'portfolio:newPost' %}">Criar Novo Post</a>
     </div>
 
-    <div class="postAll">
-        {% for post in posts%}
-        <div class="post">
-            <div class="post_header">
-                <h3> {{ post.titulo }}</h3>
-            </div>
+        <div class="list-post list-background">
+            {% for post in posts %}
+            <div class="list-item">
+                <div class="list-item-title">
+                    <h4>{{ post.titulo }}</h4>
+                </div>
 
-            <div class="post_body">
-                <p> {{ post.descricao }}</p>
-            </div>
+                <div class="list-item-desc desc-post">
+                    <p>{{ post.descricao }}</p>
+                </div>
 
-            <div class="post_footer">
-                <p> {{ post.data }}</p>
+                <div class="list-item-date">
+                    <p>{{ post.data }}</p>
+                </div>
+
+                <div class="list-item-editBT">
                 <a href="{% url 'portfolio:editPost' post.id %}">Editar Post</a>
+                </div>
             </div>
+            {% endfor %}
         </div>
-
-        {% endfor %}
-    </div>
-
-
-
 
 
 
