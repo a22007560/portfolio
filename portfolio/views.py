@@ -122,8 +122,6 @@ def apaga_blog_view(request, blog_id):
 def quizz_page_view(request):
     return render(request, 'portfolio/quizz.html')
 
-def quizzPage_page_view(request):
-    return render(request, 'portfolio/quizzPage.html')
 
 def login_page_view(request):
 
