@@ -58,4 +58,39 @@
         </div>
     </article>
 
+    <div class="divider">
+    </div>
+
+    <articlec class="section2">
+        <div class="title">
+            <h3>Contacte-me</h3>
+            <a href="https://github.com/a22007560" target="_blank">
+                {% load static %}
+                <img src="{% static 'portfolio/images/icons/github.png' %}">
+            </a>
+            <a href="https://www.linkedin.com/in/luisfferreira99/" target="_blank">
+                {% load static %}
+                <img src="{% static 'portfolio/images/icons/linkedin.png' %}">
+            </a>
+        </div>
+
+        <form action="" class="formContacto newPostForm">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" placeholder="Nome...">
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Email...">
+
+            <label for="assunto">Assunto</label>
+            <input type="text" id="assunto" name="assunto" placeholder="Assunto...">
+
+            <label for="conteudo">Texto</label>
+            <textarea id="conteudo" name="conteudo" placeholder="Texto..." style="height:200px"></textarea>
+
+            <input type="submit" value="Enviar" class="sendContactForm">
+      </form>
+
+
+    </articlec>
+
 {% endblock %}

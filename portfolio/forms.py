@@ -11,7 +11,6 @@ class BlogForm(ModelForm):
         widgets = {
             'autor': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Autor...'}),
             'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Titulo do Post...'}),
-            'descricao': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Descrição do Post...'}),
         }
 
     # texto a exibir junto à janela de inserção

@@ -110,6 +110,10 @@ main {
   line-height: 1.5;
 }
 
+.title a img {
+  height: 70px;
+  margin: 30px;
+}
 .divider{
   height: 20vh;
   background-image: url(/portfolio/static/portfolio/images/background1.svg);
@@ -142,6 +146,26 @@ main {
 
 .sobreMim {
   text-align: left;
+}
+
+.formContacto {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.formContacto input {
+  width: 30%;
+}
+
+.formContacto textarea {
+  width: 50%;
+}
+
+.sendContactForm {
+  width: 5% !important;
 }
 
 /* Licenciatura */

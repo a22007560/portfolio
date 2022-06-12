@@ -7,7 +7,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
 
-        <form method="Post" action="{%  url 'portfolio:editProject' project_id %}" class="newPostForm" >
+        <form method="Post" action="{%  url 'portfolio:editProject' project_id %}" class="newPostForm center-align" >
             {% csrf_token %}
 
             {{form.as_p }}
