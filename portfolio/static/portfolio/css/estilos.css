@@ -34,7 +34,9 @@ Yellow: #FFD369
   text-align: center;
 }
 
-
+.disabled-link {
+  pointer-events: none;
+}
 
 /* HEADER */
 
@@ -50,33 +52,57 @@ header {
   align-items: center;
 }
 
-header div {
+.headerTitle{
   font-size: 2em;  
   padding: 1em;
   color: #181818;
 }
 
-header nav {
-  display:flex;
-  justify-content: flex-end;  
+.menu{
+  list-style:none;
+  float:left;
+  z-index: 999999;
 }
 
-
-nav a {
-  padding: 0 1em;
-  text-decoration: none;
-  font-size: 1rem;
-  color: #181818;
+.menu li{
+  position:relative;
+  float:left;
+  border-left: 1px solid #181818;
 }
 
-nav a:last-child{
-  border-left: 2px solid #181818 !important;
-  margin-left: 10%;
+.menu li a {
+  color:#181818;
+  text-decoration:none;
+  padding:5px 10px;
+  display:block;
+  margin: 0 20px;
 }
 
-nav a:hover {
+.menu li a:hover{
   text-decoration: underline;
 }
+
+.menu li ul{
+  position:absolute;
+  left:0;
+  background-color:#181818;
+  display:none;
+}
+
+.menu li ul a{
+  color: #FFD369;
+}
+
+.menu li:hover ul, .menu li.over ul{
+  display:block;
+}
+
+.menu li ul li{
+  border:1px solid #c0c0c0;
+  display:block;
+  width:150px;
+}
+
 
 .sticky {
   top: 0;
@@ -213,15 +239,18 @@ main {
   display: flex;
 }
 
-#clock {
+.timeAndDate {
   position: fixed;
-  color: #181818;
   background: #FFD369;
   bottom: 20px;
   left: 20px;
   border-radius: 10px;
   padding: 5px;
   border: 2px solid #181818;
+}
+
+.timeAndDate > div {
+    color: #181818;
 }
 
 /* FOOTER */

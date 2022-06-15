@@ -4,9 +4,7 @@
     const cloudIconCode = [4, 5, 25, 24, 27]
     const partlyCloudy = [2]
 
-    window.onload = function() {
-        getWeatherFun()
-    };
+
 
     function getWeatherFun(){
         var cityCode = document.getElementById("city").value;

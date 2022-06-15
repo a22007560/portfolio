@@ -22,27 +22,37 @@
     <link rel="icon" type="image/x-icon" href="{% static 'portfolio/images/icons/favicon.ico' %}">
 </head>
 
-<body>
+<body onload="showDate()">
     <header class="sticky">
-        <div>Luís Ferreira</div>
-        <nav id="top">
-            <a href="{% url 'portfolio:home' %}">Home</a>
-            <a href="{% url 'portfolio:licenciatura' %}">Licenciatura</a>
-            <a href="{% url 'portfolio:projetos' %}">Projetos</a>
-            <a href="{% url 'portfolio:blog' %}">Blog</a>
-            <a href="{% url 'portfolio:quizz' %}">Quizz</a>
-            <a href="{% url 'portfolio:weather' %}">Meterologia</a>
-            <a href="{% url 'portfolio:factos' %}">Extra</a>
-            {% if request.user.is_authenticated %}
-                <a href="{% url 'portfolio:logout' %}" id="loginNav">Logout</a>
-            {% else %}
-                <a href="{% url 'portfolio:login' %}" id="loginNav">Login</a>
-            {% endif %}
-        </nav>
+        <div class="headerTitle">Luís Ferreira</div>
+        <ul class="menu">
+            <li><a href="{% url 'portfolio:home' %}">Home</a></li>
+            <li><a href="{% url 'portfolio:licenciatura' %}">Licenciatura</a></li>
+            <li><a href="{% url 'portfolio:projetos' %}">Projetos</a></li>
+            <li><a href="{% url 'portfolio:blog' %}">Blog</a></li>
+            <li><a href="{% url 'portfolio:quizz' %}">Quizz</a></li>
+            <li><a href="#">API's</a>
+                <ul>
+                      <li><a href="{% url 'portfolio:weather' %}">Meterologia</a></li>
+                      <li><a href="{% url 'portfolio:factos' %}">Animais</a></li>
+                </ul>
+            </li>
+            <li>
+                {% if request.user.is_authenticated %}
+                    <a class="navLogin" href="{% url 'portfolio:logout' %}" id="loginNav">Logout</a>
+                {% else %}
+                    <a class="navLogin" href="{% url 'portfolio:login' %}" id="loginNav">Login</a>
+                {% endif %}
+            </li>
+        </ul>
     </header>
     
     <main>
-        <div id="clock">00:00:00</div>
+        <div class="timeAndDate">
+            <div id="clock">00:00:00</div>
+            <div id="date">--/--/--</div>
+        </div>
+
         {% block main %}
         {% endblock main %}
     </main>
