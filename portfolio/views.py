@@ -4,8 +4,13 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 
-from .models import Blog, Project, PontuacaoQuizz, Cadeira
-from .forms import BlogForm, ProjectForm, CadeiraForm
+from .models import Blog, Project, PontuacaoQuizz, Cadeira, TFC
+from .forms import BlogForm, ProjectForm, CadeiraForm, TFCForm
+
+import base64
+import datetime
+import io
+import urllib
 
 import matplotlib.pyplot as plt
 import matplotlib
@@ -50,15 +55,14 @@ def apaga_cadeira_view(request, cadeira_id):
     Cadeira.objects.get(id=cadeira_id).delete()
     return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
-
-
 def projetos_page_view(request):
-    context = {'projetos': Project.objects.all()}
+    context = {'projetos': Project.objects.all(),
+               'tfcs': TFC.objects.all()}
     return render(request, 'portfolio/projetos.html', context)
 
 def newProject_page_view(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
 
     form = ProjectForm(request.POST, request.FILES or None)
     if form.is_valid():
@@ -68,6 +72,34 @@ def newProject_page_view(request):
     context = {'form': form}
 
     return render(request, 'portfolio/newProject.html', context)
+
+def newTFC_page_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    form = TFCForm(request.POST, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/newTFC.html', context)
+
+def edita_tfc_view(request, tfc_id):
+    tfc = TFC.objects.get(id=tfc_id)
+    form = ProjectForm(request.POST or None, instance=tfc)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form, 'tfc_id': tfc_id}
+    return render(request, 'portfolio/editTFC.html', context)
+
+def apaga_tfc_view(request, tfc_id):
+    TFC.objects.get(id=tfc_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:projetos'))
 
 def edita_project_view(request, project_id):
     project = Project.objects.get(id=project_id)
@@ -120,7 +152,17 @@ def apaga_blog_view(request, blog_id):
 
 
 def quizz_page_view(request):
-    return render(request, 'portfolio/quizz.html')
+    if request.method == 'POST':
+        pontuacao = pontuacao_quizz(request)
+        name = request.POST['nome']
+        resultado = PontuacaoQuizz(nome=name, pontuacao=pontuacao)
+        resultado.save()
+
+    context = {
+        'data': desenha_grafico_resultados(request),
+    }
+
+    return render(request, 'portfolio/quizz.html', context)
 
 
 def login_page_view(request):
@@ -157,9 +199,12 @@ def weather_page_view(request):
 def factos_page_view(request):
     return render(request, 'portfolio/factos.html')
 
+def noticias_page_view(request):
+    return render(request, 'portfolio/noticias.html')
+
 def pontuacao_quizz(request):
     score = 0
-    lista_checkBox = request.POST.getList('op21')
+    lista_checkBox = request.POST.getlist('op21')
 
     if request.POST['pergunta1'] == 'teste':
         score += 1
@@ -173,27 +218,30 @@ def pontuacao_quizz(request):
 
     return score
 
-
-def quizz(request):
-    if request.method == 'POST':
-        n = request.POST['nome']
-        p = pontuacao_quizz(request)
-        r = PontuacaoQuizz(nome=n, pontuacao=p)
-        r.save()
-
-    desenha_grafico_resultados(request)
-    return render(request, 'portfolio/quizz.html')
-
-
 def desenha_grafico_resultados(request):
-    pontuacoes = PontuacaoQuizz.objects.all()
-    pontuacao_sorted = sorted(pontuacoes, key=lambda objeto: objeto.pontuacao, reverse=False)
-    listaNomes = []
-    listapontuacao = []
+    pontuacoes = PontuacaoQuizz.objects.all().order_by('pontuacao')
+    lista_nomes = []
+    lista_pontuacao = []
 
-    for person in pontuacao_sorted:
-        listaNomes.append(person.nome)
-        listapontuacao.append(person.pontuacao)
+    for person in pontuacoes:
+        lista_nomes.append(person.nome)
+        lista_pontuacao.append(person.pontuacao)
 
-    plt.barh(listaNomes, listapontuacao)
+    plt.barh(lista_nomes, lista_pontuacao)
+    plt.ylabel("Nomes")
+    plt.xlabel("Pontuação")
     plt.savefig('portfolio/static/portfolio/images/graf.png', bbox_inches='tight')
+
+    plt.autoscale()
+
+    fig = plt.gcf()
+    plt.close()
+
+    buf = io.BytesIO()
+    fig.savefig(buf, format='png')
+
+    buf.seek(0)
+    string = base64.b64encode(buf.read())
+    uri = urllib.parse.quote(string)
+
+    return uri

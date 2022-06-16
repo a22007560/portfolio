@@ -4,7 +4,9 @@
 }
 
 .hero_title {
-  color: #FFD369;
+  color: #eeeeee;
+  width: 100%;
+  text-align: center;
 }
 
 .hero {
@@ -13,6 +15,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#spin {
+  color: #FFD369;
+}
+#spin:after {
+  content:"";
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  0% { content:"Programmer"; }
+  25% { content:"Programmer"; }
+  50% { content:"Web Designer"; }
+  75% { content:"3d Artist"; }
+  100% { content:"Motorcycle Enthusiast"; }
 }
 
 .mouse_move {

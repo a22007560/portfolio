@@ -32,6 +32,16 @@ class Project(models.Model):
     def __str__(self):
         return self.titulo
 
+class TFC(models.Model):
+    titulo = models.CharField(max_length=50)
+    resumo = models.TextField(max_length=3000)
+    autor = models.CharField(max_length=50)
+    orientador = models.CharField(max_length=50)
+    links = models.CharField(max_length=50)
+    imagem = models.ImageField(upload_to="pictures/")
+
+    def __str__(self):
+        return self.titulo
 
 class Cadeira(models.Model):
     titulo = models.CharField(max_length=50)

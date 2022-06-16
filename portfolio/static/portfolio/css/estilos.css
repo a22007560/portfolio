@@ -87,6 +87,7 @@ header {
   left:0;
   background-color:#181818;
   display:none;
+  border:1px solid #FFD369;
 }
 
 .menu li ul a{
@@ -98,7 +99,6 @@ header {
 }
 
 .menu li ul li{
-  border:1px solid #c0c0c0;
   display:block;
   width:150px;
 }

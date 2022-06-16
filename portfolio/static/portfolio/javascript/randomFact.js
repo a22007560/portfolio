@@ -1,7 +1,4 @@
 
-
-
-
     function getAnimal(){
         var animalName = document.querySelector('.animalName')
         var animalLatinName = document.querySelector('.animalLatinName')

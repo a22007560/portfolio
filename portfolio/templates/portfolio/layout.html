@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="{% static 'portfolio/css/estilos_factos.css' %}">
     <link rel="stylesheet" href="{% static 'portfolio/css/estilos_projectos.css' %}">
     <link rel="stylesheet" href="{% static 'portfolio/css/estilos_list.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/estilos_timeline.css' %}">
     <script src="{% static 'portfolio/javascript/hero.js' %}"></script>
     <script src="{% static 'portfolio/javascript/weatherAPI.js' %}"></script>
     <script src="{% static 'portfolio/javascript/clock.js' %}"></script>
     <script src="{% static 'portfolio/javascript/randomFact.js' %}"></script>
+    <script src="{% static 'portfolio/javascript/noticias.js' %}"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -27,14 +29,22 @@
         <div class="headerTitle">Luís Ferreira</div>
         <ul class="menu">
             <li><a href="{% url 'portfolio:home' %}">Home</a></li>
-            <li><a href="{% url 'portfolio:licenciatura' %}">Licenciatura</a></li>
+            <li><a href="{% url 'portfolio:licenciatura' %}">Educação</a></li>
+            <li><a href="#">Interesses</a></li>
             <li><a href="{% url 'portfolio:projetos' %}">Projetos</a></li>
+            <li><a href="#">Programação Web</a>
+                <ul>
+                    <li><a href="#">Tecnologias</a></li>
+                    <li><a href="https://pw-lab1.herokuapp.com/" target="_blank">Labs</a></li>
+                    <li><a href="{% url 'portfolio:noticias' %}">Notícias</a></li>
+                </ul>
+            </li>
             <li><a href="{% url 'portfolio:blog' %}">Blog</a></li>
             <li><a href="{% url 'portfolio:quizz' %}">Quizz</a></li>
             <li><a href="#">API's</a>
                 <ul>
-                      <li><a href="{% url 'portfolio:weather' %}">Meterologia</a></li>
-                      <li><a href="{% url 'portfolio:factos' %}">Animais</a></li>
+                    <li><a href="{% url 'portfolio:weather' %}">Meterologia</a></li>
+                    <li><a href="{% url 'portfolio:factos' %}">Animais</a></li>
                 </ul>
             </li>
             <li>

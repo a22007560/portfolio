@@ -1,0 +1,31 @@
+<div class="grid-container grid-sobreMim">
+            <div class="right-align">
+                {% load static %}
+                <img src="{% static 'portfolio/images/icons/personInfo.png' %}">
+            </div>
+            <div class="sobreMim">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet arcu id faucibus egestas. Nam dictum dui nec enim malesuada, et blandit sem laoreet. Aenean lobortis rutrum metus eu tempus. Aliquam feugiat, tellus nec accumsan condimentum, diam neque fermentum neque, sit amet ultricies elit augue ac risus. Etiam dolor leo, eleifend id semper et, varius in mauris.
+                </p>
+            </div>
+
+            <div class="conhecimentos">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet arcu id faucibus egestas. Nam dictum dui nec enim malesuada, et blandit sem laoreet. Aenean lobortis rutrum metus eu tempus. Aliquam feugiat, tellus nec accumsan condimentum, diam neque fermentum neque, sit amet ultricies elit augue ac risus. Etiam dolor leo, eleifend id semper et, varius in mauris.
+                </p>
+            </div>
+            <div class="left-align">
+                {% load static %}
+                <img src="{% static 'portfolio/images/icons/code.png' %}">
+            </div>
+
+            <div class="right-align">
+                {% load static %}
+                <img src="{% static 'portfolio/images/icons/dirt_bike.png' %}">
+            </div>
+            <div class="hobbies">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet arcu id faucibus egestas. Nam dictum dui nec enim malesuada, et blandit sem laoreet. Aenean lobortis rutrum metus eu tempus. Aliquam feugiat, tellus nec accumsan condimentum, diam neque fermentum neque, sit amet ultricies elit augue ac risus. Etiam dolor leo, eleifend id semper et, varius in mauris.
+                </p>
+            </div>
+        </div>

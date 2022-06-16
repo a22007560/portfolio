@@ -128,8 +128,17 @@ main {
   padding-top: 40px;
 }
 
+.flex-sobreMim {
+  display: flex;
+  align-content: center;
+}
+
+.flex-sobreMim div {
+  text-align: center;
+}
+
 .sobreMim {
-  text-align: left;
+
 }
 
 /* Licenciatura */
