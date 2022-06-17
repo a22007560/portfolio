@@ -206,15 +206,24 @@ def pontuacao_quizz(request):
     score = 0
     lista_checkBox = request.POST.getlist('op21')
 
-    if request.POST['pergunta1'] == 'teste':
+    if request.POST['pergunta1'] == 'op2':
         score += 1
 
-    if 'respostaCerta' in lista_checkBox:
+    if 'op21' in lista_checkBox:
         score += 1
 
-    if 'respostaErrada' in lista_checkBox:
+    if 'op23' in lista_checkBox:
+        score += 1
+
+    if 'op22' in lista_checkBox:
         if score > 0:
             score -= 1
+
+    if request.POST['op31'] == 'Hypertext Markup Language' or request.POST['op31'] == 'hypertext markup language':
+        score += 1
+
+    if request.POST['op41'] == '1991':
+        score += 1
 
     return score
 

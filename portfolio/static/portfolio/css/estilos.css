@@ -152,17 +152,6 @@ main {
   width: 100%;
 }
 
-.grid-sobreMim {
-  display: grid;
-  gap: 50px;
-  padding: 5% 20%;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 
-    '. .'
-    '. .'
-    '. .';
-}
-
 .section2 h2{
   text-align: center;
   padding-top: 40px;
@@ -190,12 +179,35 @@ main {
   text-align: center;
 }
 
+.sobreMim ul {
+  list-style: none;
+  margin-left: 50px;
+}
+
+.sobreMim ul li::before {
+  content: "\2022";
+  color: #FFD369;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
 @media only screen and (max-width: 768px) {
   .flex-sobreMim{
     display: flex;
     margin: 20px;
     flex-direction: column;
   }
+}
+
+.websiteTree {
+  text-align: center;
+}
+
+.websiteTreeImg {
+  background-color: #FFD369;
+  margin: 30px 0;
 }
 
 .formContacto {
