@@ -1,31 +1,23 @@
-<div class="grid-container grid-sobreMim">
-            <div class="right-align">
-                {% load static %}
-                <img src="{% static 'portfolio/images/icons/personInfo.png' %}">
-            </div>
-            <div class="sobreMim">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet arcu id faucibus egestas. Nam dictum dui nec enim malesuada, et blandit sem laoreet. Aenean lobortis rutrum metus eu tempus. Aliquam feugiat, tellus nec accumsan condimentum, diam neque fermentum neque, sit amet ultricies elit augue ac risus. Etiam dolor leo, eleifend id semper et, varius in mauris.
-                </p>
-            </div>
+    function getNews(){
+        var newsTitle = document.querySelector('.news-title')
+        var newsImg = document.querySelector('.news-img')
+        var newsDesc = document.querySelector('.news-description')
+        var newsUrl = document.querySelector('.news-url')
+        var newsDate = document.querySelector('.news-date')
+        var newsSource = document.querySelector('.news-source')
 
-            <div class="conhecimentos">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet arcu id faucibus egestas. Nam dictum dui nec enim malesuada, et blandit sem laoreet. Aenean lobortis rutrum metus eu tempus. Aliquam feugiat, tellus nec accumsan condimentum, diam neque fermentum neque, sit amet ultricies elit augue ac risus. Etiam dolor leo, eleifend id semper et, varius in mauris.
-                </p>
-            </div>
-            <div class="left-align">
-                {% load static %}
-                <img src="{% static 'portfolio/images/icons/code.png' %}">
-            </div>
+        fetch('https://gnews.io/api/v4/top-headlines?token=f5244e8b9006523a706b443bbbdbe0be&lang=en')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                newsTitle.innerHTML = data['articles'][0]['title'];
+                newsImg.src = data['articles'][0]['image'];
+                newsDesc.innerHTML = data['articles'][0]['description'];
+                newsUrl.href = data['articles'][0]['url'];
+                newsDate.innerHTML = "Publicado a: " + data['articles'][0]['publishedAt'];
+                newsSource.innerHTML = "Fonte: " + data['articles'][0]['source']['name'];
 
-            <div class="right-align">
-                {% load static %}
-                <img src="{% static 'portfolio/images/icons/dirt_bike.png' %}">
-            </div>
-            <div class="hobbies">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet arcu id faucibus egestas. Nam dictum dui nec enim malesuada, et blandit sem laoreet. Aenean lobortis rutrum metus eu tempus. Aliquam feugiat, tellus nec accumsan condimentum, diam neque fermentum neque, sit amet ultricies elit augue ac risus. Etiam dolor leo, eleifend id semper et, varius in mauris.
-                </p>
-            </div>
-        </div>
+        }).catch(error => {
+        console.error('Erro nas Noticias!', error);
+    });
+    }

@@ -42,11 +42,9 @@ Yellow: #FFD369
 
 header {
   height: 10vh; 
-  background: #FFD369;
   color: #181818;
+  background: #FFD369;
   top: 0;  
-  
-/* alinhando logo e menu */
   display:flex;
   justify-content: space-between;  
   align-items: center;
@@ -170,8 +168,34 @@ main {
   padding-top: 40px;
 }
 
+/* SOBRE MIM */
+
+.flex-sobreMim{
+  display: flex;
+  margin: 20px 20%;
+  flex-direction: row;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.flex-sobreMim div {
+  margin: 20px;
+}
+
 .sobreMim {
   text-align: left;
+}
+
+.sobreMimImg {
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .flex-sobreMim{
+    display: flex;
+    margin: 20px;
+    flex-direction: column;
+  }
 }
 
 .formContacto {
@@ -180,18 +204,23 @@ main {
   flex-direction: column;
   align-items: center;
   padding-bottom: 40px;
+  color: #181818;
 }
 
 .formContacto input {
-  width: 30%;
+  margin: 10px 0;
+  color: #181818;
+  height: 2rem;
+  border-radius: 15px;
 }
 
 .formContacto textarea {
-  width: 50%;
+  margin: 10px 0;
+  color: #181818;
+  border-radius: 15px;
 }
 
 .sendContactForm {
-  width: 5% !important;
 }
 
 /* Licenciatura */

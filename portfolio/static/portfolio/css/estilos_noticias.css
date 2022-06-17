@@ -1,0 +1,35 @@
+
+
+
+.newsBox {
+    background: #181818;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #181818;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 50px 3px rgba(0,0,0,0.47);
+    margin: 0 20% 30px;
+}
+
+
+.newsBox h3 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: #FFD369;
+}
+
+
+.newsBox img {
+    width: 50%; /* or any custom size */
+    height: 50%;
+    object-fit: contain;
+}
+
+.newsBox p {
+    margin-top: 20px;
+}
+
+.newsBox a {
+    color: #FFD369;
+}

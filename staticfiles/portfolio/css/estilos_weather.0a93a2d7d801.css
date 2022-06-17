@@ -1,0 +1,50 @@
+
+
+.weatherMain{
+    min-height: 85vh;
+}
+
+.weatherCityInput select {
+    color: #181818;
+    font-size: 2rem;
+}
+
+.weatherCityInput option{
+    color: #181818;
+    font-size: 1rem;
+}
+
+.weatherDisplay {
+    text-align: center;
+    background: #181818;
+    padding: 20px;
+    border: 2px solid #181818;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 50px 3px rgba(0,0,0,0.47);
+    display: inline-block;
+}
+
+.weatherDisplay:hover{
+    box-shadow: 0px 0px 50px 3px rgba(0,0,0,0.47);
+    border: 2px solid #FFD369;
+}
+
+.weatherCityInput{
+    text-align: center;
+    padding: 20px;
+}
+
+.weatherIcon {
+    height: 100px;
+    width: 100px;
+}
+
+.weatherForecastDays {
+    text-align: center;
+}
+
+
+
+
+

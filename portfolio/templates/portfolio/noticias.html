@@ -11,11 +11,15 @@
     </div>
 
     <div class="center-align">
-        <input class="rndAnimalButton" type="submit" value="Noticias">
+        {% for news in '0123456789' %}
+        <div class="newsBox" id="newsBox{{news}}"></div>
+        {% endfor %}
     </div>
 
     <script>
-
+        window.onload = function () {
+            getNews();
+        }
     </script>
 </section>
 

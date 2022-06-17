@@ -26,12 +26,21 @@
         </div>
 
         <div class="flex-sobreMim">
-            <div class="sobreMimImg">
+            <div class="sobreMimImg col-2">
                 {% load static %}
                 <img src="{% static 'portfolio/images/icons/personInfo.png' %}">
-
             </div>
-            <div class="sobreMim">
+            <div class="sobreMim col-9">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet arcu id faucibus egestas. Nam dictum dui nec enim malesuada, et blandit sem laoreet. Aenean lobortis rutrum metus eu tempus. Aliquam feugiat, tellus nec accumsan condimentum, diam neque fermentum neque, sit amet ultricies elit augue ac risus. Etiam dolor leo, eleifend id semper et, varius in mauris.
+                </p>
+            </div>
+
+            <div class="sobreMimImg col-2">
+                {% load static %}
+                <img src="{% static 'portfolio/images/icons/code.png' %}">
+            </div>
+            <div class="sobreMim col-9">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet arcu id faucibus egestas. Nam dictum dui nec enim malesuada, et blandit sem laoreet. Aenean lobortis rutrum metus eu tempus. Aliquam feugiat, tellus nec accumsan condimentum, diam neque fermentum neque, sit amet ultricies elit augue ac risus. Etiam dolor leo, eleifend id semper et, varius in mauris.
                 </p>
@@ -47,28 +56,22 @@
     <articlec class="section2">
         <div class="title">
             <h3>Contacte-me</h3>
-            <a href="https://github.com/a22007560" target="_blank">
-                {% load static %}
-                <img src="{% static 'portfolio/images/icons/github.png' %}">
-            </a>
+            {% load static %}
+            <a href="https://github.com/a22007560" target="_blank"><img src="{% static 'portfolio/images/icons/github.png' %}"></a>
             <a href="https://www.linkedin.com/in/luisfferreira99/" target="_blank">
                 {% load static %}
                 <img src="{% static 'portfolio/images/icons/linkedin.png' %}">
             </a>
         </div>
 
-        <form action="" class="formContacto newPostForm">
-            <label for="name">Nome</label>
-            <input type="text" id="name" name="name" placeholder="Nome...">
+        <form action="" class="formContacto">
+            <input type="text" id="name" name="name" placeholder="Nome..." class="col-4">
 
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" placeholder="Email...">
+            <input type="text" id="email" name="email" placeholder="Email..."  class="col-4">
 
-            <label for="assunto">Assunto</label>
-            <input type="text" id="assunto" name="assunto" placeholder="Assunto...">
+            <input type="text" id="assunto" name="assunto" placeholder="Assunto..."  class="col-6">
 
-            <label for="conteudo">Texto</label>
-            <textarea id="conteudo" name="conteudo" placeholder="Texto..." style="height:200px"></textarea>
+            <textarea id="conteudo" name="conteudo" placeholder="Texto..." style="height:200px"  class="col-6"></textarea>
 
             <input type="submit" value="Enviar" class="sendContactForm">
       </form>

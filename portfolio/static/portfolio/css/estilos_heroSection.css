@@ -20,6 +20,7 @@
 #spin {
   color: #FFD369;
 }
+
 #spin:after {
   content:"";
   animation: spin 5s linear infinite;

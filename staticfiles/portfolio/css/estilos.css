@@ -108,21 +108,6 @@ main {
   background-size: cover;
 }
 
-.divider img {
-  width: 100%;
-}
-
-.grid-sobreMim {
-  display: grid;
-  gap: 50px;
-  padding: 5% 20%;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 
-    '. .'
-    '. .'
-    '. .';
-}
-
 .section2 h2{
   text-align: center;
   padding-top: 40px;
